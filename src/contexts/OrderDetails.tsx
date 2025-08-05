@@ -1,7 +1,36 @@
 import { createContext, useContext, useState } from "react";
 import {pricePerItem} from '../constants/index';
 
-const OrderDetails = createContext(null);
+ type optionType = "scoops" | "toppings" ;
+
+ interface OptionCounts{
+    
+    scoops: Record<string,number>;
+    toppinggs: Record<string,number>;
+ }
+
+ interface Totals{
+    
+    scoops: number;
+    toppings: number;
+ }
+
+ interface OrderDetails {
+
+    optionCounts: OptionCounts;
+    totals: Totals;
+    updateItemCount: (itemName:string, newItemCount:number,optionType: OptionType) => void;
+ }
+
+ interface OrderDetailsProviderPros{
+
+    children: ReactNode;
+ }
+
+ const OrderDetails = createContext < OrderDetailsContextType | null> (null);
+
+
+/*
 
 export function useOrderDetails() {
 
@@ -22,7 +51,7 @@ export function OrderDetailsProvider(props) {
     });
 
 
-function updateItemCount(itemName, newItemCount, optionType) {
+function updateItemCount(itemName:string , newItemCount: number, optionType:"scoops"|"toppings") {
     
     const newOptionCounts = {...optionCounts};
     newOptionCounts[optionType][itemName] = newItemCount;
@@ -31,7 +60,7 @@ function updateItemCount(itemName, newItemCount, optionType) {
 }
 
 function resetOrder() {
-    
+ 
     setOptionCounts({scoops: {},toppings: {}});
 }    
 
@@ -52,4 +81,4 @@ const totals = {
 const value = {optionCounts,totals,updateItemCount,resetOrder};
 
 return <OrderDetails.Provider value={value} {...props}/>;
-}
+}*/
