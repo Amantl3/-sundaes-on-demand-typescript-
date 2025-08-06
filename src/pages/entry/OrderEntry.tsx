@@ -17,7 +17,7 @@ export default function OrderEntry( {setStep}: StepOptions ){
         <h1>Design Your Sundae!</h1>
         <Options optionType='scoops'/>
         <h3>Scoops total: {formatCurrency(totals.scoops)}</h3>
-        <Options optionType='toppings/'/>
+        <Options optionType='toppings'/>
         <h3>Toppings total: {formatCurrency(totals.toppings)}</h3>
         <h2>Totals:{formatCurrency(totals.scoops+totals.toppings)} </h2>;
         <Button disabled={orderDisabled} onClick={()=>setStep("summary")}  >view order</Button>

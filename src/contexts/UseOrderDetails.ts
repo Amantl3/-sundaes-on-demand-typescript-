@@ -1,7 +1,7 @@
 import {useContext, createContext} from 'react';
 import type { OrderDetails } from './OrderDetailsContext';
 
- export const OrderDetailsContext = createContext < OrderDetails | null> (null);
+export const OrderDetailsContext = createContext < OrderDetails | null> (null);
 
 export function useOrderDetails(): OrderDetails {
   

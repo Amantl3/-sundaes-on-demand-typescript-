@@ -11,7 +11,9 @@ test('error response from server for submitting order', async() =>{
         })
     );
     
-    render(<OrderConfirmation/>);
+    render(<OrderConfirmation setStep={function (step: string): void {
+        throw new Error("Function not implemented.");
+    } }/>);
 
     const alert = await screen.findByRole("alert");
     

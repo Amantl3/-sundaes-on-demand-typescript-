@@ -2,12 +2,15 @@ import { useState } from "react";
 import { pricePerItem } from '../constants/index';
 import { OrderDetailsContext } from "./UseOrderDetails";
 
+
 import type {   OrderDetailsProviderProps,
                 OptionCounts,   
                 OptionType,
                 Totals,
                 OrderDetails
             } from "./OrderDetailsContext";
+
+export { useOrderDetails } from "./UseOrderDetails";
 
 export function OrderDetailsProvider({ children }: OrderDetailsProviderProps) {
   
