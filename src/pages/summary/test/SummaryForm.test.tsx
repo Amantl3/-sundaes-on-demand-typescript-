@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { expect, test } from "vitest";
-import { SummaryForm } from "../SummaryForm";
+import  SummaryForm  from '../SummaryForm';
 import userEvent from "@testing-library/user-event";
+import { vi } from "vitest";
 
 test("testing summary form checkbox and button", async () => {
   const user = userEvent.setup();
-  render(<SummaryForm />);
+  render(<SummaryForm setStep={vi.fn()}/>);
 
   const checkboxElement = screen.getByRole("checkbox", {
     name: /terms and conditions/i,
@@ -26,7 +27,7 @@ test("testing summary form checkbox and button", async () => {
 
 test("popover response to hover", async () => {
   const user = userEvent.setup();
-  render(<SummaryForm />);
+  render(<SummaryForm setStep={vi.fn()}/>);
 
   //popover startout hiden
   const nullpopover = screen.queryByText(

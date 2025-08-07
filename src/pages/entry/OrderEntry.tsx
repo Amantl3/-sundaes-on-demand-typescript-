@@ -4,7 +4,7 @@ import { useOrderDetails } from "../../contexts/UseOrderDetails";
 import { formatCurrency } from "../../utilities";
 
 export interface OrderEntryProps {
-  setStep: (phase: string) => void;
+  setStep: (step: string) => void;
 }
 
 

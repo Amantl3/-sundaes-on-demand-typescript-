@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover"; 
-import
+import Popover from "react-bootstrap/Popover";
+import {type OrderEntryProps} from '../entry/OrderEntry'
 
-export function SummaryForm({ setStep }) {
+export default function SummaryForm({ setStep }: OrderEntryProps) {
   const [tcChecked, setTcChecked] = useState(false);
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setStep("confirmation");
@@ -27,6 +27,7 @@ export function SummaryForm({ setStep }) {
       </OverlayTrigger>
     </span>
   );
+  
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group controlId="terms-and-conditions">
