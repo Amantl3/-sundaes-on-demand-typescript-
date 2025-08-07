@@ -1,0 +1,20 @@
+import Alert from "react-bootstrap/Alert";
+
+interface Banner{
+    message: string
+    variant: string
+}
+
+export default function AlertBanner({ message, variant }: Banner) {
+ 
+    const alertMessage =
+    message || "An unexpected error occured. Please try again later.";
+ 
+    const alertVariant = variant || "danger";
+
+  return (
+    <Alert variant={alertVariant} style={{ backgroundColor: "red" }}>
+      {alertMessage}
+    </Alert>
+  );
+}

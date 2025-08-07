@@ -1,0 +1,28 @@
+import Button from "react-bootstrap/Button";
+import Options from "./Options";
+import { useOrderDetails } from "../../contexts/UseOrderDetails";
+import { formatCurrency } from "../../utilities";
+
+export interface OrderEntryProps {
+  setStep: (phase: string) => void;
+}
+
+
+export default function OrderEntry({ setStep }: OrderEntryProps) {
+  const { totals } = useOrderDetails();
+
+  // disable order button if there aren't any scoops in order
+  const orderDisabled = totals.scoops === 0;
+
+  return (
+    <div>
+      <h1>Design Your Sundae!</h1>
+      <Options optionType="scoops" />
+      <Options optionType="toppings" />
+      <h2>Grand total: {formatCurrency(totals.scoops + totals.toppings)}</h2>
+      <Button disabled={orderDisabled} onClick={() => setStep("review")}>
+        Order Sundae!
+      </Button>
+    </div>
+  );
+}
